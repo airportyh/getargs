@@ -1,0 +1,21 @@
+{
+  "name": "getargs",
+  "version": "0.0.0",
+  "description": "Utility to handle optional arguments and argument type checking.",
+  "main": "index.js",
+  "dependencies": {
+    "is-type": "~0.0.1"
+  },
+  "devDependencies": {
+    "chai": "~1.7.2"
+  },
+  "scripts": {
+    "test": "mocha tests.js -u tdd"
+  },
+  "keywords": [
+    "arguments",
+    "utility"
+  ],
+  "author": "Toby Ho",
+  "license": "MIT"
+}
