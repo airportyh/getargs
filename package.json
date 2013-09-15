@@ -16,6 +16,10 @@
     "arguments",
     "utility"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:airportyh/getargs.git"
+  },
   "author": "Toby Ho",
   "license": "MIT"
 }
