@@ -26,7 +26,7 @@ The argument spec is a comma delimited string of individual specs, which look li
     argname:type
 
 * `argname` is the name of the argument, and can be called anything
-* `type` is a basic Javascript type. Currently these are supported
+* `type` is an optional basic Javascript type. Currently these are supported
   * `string`
   * `boolean`
   * `number`
