@@ -69,3 +69,11 @@ test('spread operator', function(){
   assert(result.b == '2,3,4')
 })
 
+test('sets properties on target if passed in', function(){
+  var target = {}
+  var args = [1, 2]
+  getArgs('a,b', args, target)
+  assert(target.a == 1)
+  assert(target.b == 2)
+})
+

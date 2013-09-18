@@ -37,8 +37,8 @@ function typeMatches(spec, arg){
   return fun(arg)
 }
 
-module.exports = function getArgs(spec, args){
-  var ret = {}
+module.exports = function getArgs(spec, args, target){
+  var ret = target || {}
   spec = spec.split(',').map(function(s){
     return ArgSpec(s)
   })
