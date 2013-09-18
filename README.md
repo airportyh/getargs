@@ -38,6 +38,24 @@ The argument spec is a comma delimited string of individual specs, which look li
 
 To denote optional arguments, you'd surround it with square brackets `[]`.
 
+### Type Verification
+
+getArgs will throw if the arguments have the wrong types
+
+    var args = getArgs('url:string', [1])
+    // Error: Expected url(pos 0) to be a string
+
+### Argument List Length Verification
+
+getArgs will throw if there are too many or too few arguments
+
+    > getArgs('a,b', [1])
+    Error: Not enough arguments, expected 2, got 1
+    > getArgs('a,b', [1,1])
+    { a: 1, b: 1 }
+    > getArgs('a,b', [1,1,1])
+    Error: Too many arguments, expected 2, got 3
+
 ### Spread Operator
 
 You can mimick ES6's spread operator
