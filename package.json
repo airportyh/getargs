@@ -1,6 +1,6 @@
 {
   "name": "getargs",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Utility to handle optional arguments and argument type checking.",
   "main": "index.js",
   "dependencies": {},
