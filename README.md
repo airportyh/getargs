@@ -36,7 +36,7 @@ The argument spec is a comma delimited string of individual specs, which look li
 
 ### Optional Arguments
 
-To denote optional arguments, you'd surround it with square brackets `[]`.
+To denote optional arguments, you'd surround `argname` with square brackets `[]`.
 
 ### Type Verification
 
