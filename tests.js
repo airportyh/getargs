@@ -21,7 +21,9 @@ test('too many throws', function(){
   assert.throws(function(){
     getArgs('a', args)
   }, 'Too many arguments, expected 1, got 2')
-  
+  assert.throws(function(){
+    getArgs('a,b', [1,2,3])
+  }, 'Too many arguments, expected 2, got 3')
 })
 
 test('checks type', function(){

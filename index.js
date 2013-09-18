@@ -67,7 +67,8 @@ module.exports = function getArgs(spec, args, target){
       break
     }
     if (argIdx >= maxExpected){
-      throw new Error('Too many arguments, expected 1, got 2')
+      throw new Error('Too many arguments, expected ' + 
+        maxExpected + ', got ' + (argIdx + 1))
     }
     var arg = args[argIdx]
     if (typeMatches(sp, arg)){
