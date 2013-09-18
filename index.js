@@ -1,4 +1,11 @@
-var is = require('is-type')
+var is = {
+  'string': function(s){ return typeof s === 'string' },
+  'function': function(f){ return typeof f === 'function' },
+  'number': function(f){ return typeof f === 'number' },
+  'array': Array.isArray || function(a){ return a instanceof Array },
+  'object': function(o){ return typeof o === 'object' && o != null },
+  'boolean': function(b){ return typeof b === 'boolean' }
+}
 
 function ArgSpec(str){
   var ret

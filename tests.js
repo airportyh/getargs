@@ -38,6 +38,9 @@ test('checks type', function(){
   assert.throws(function(){
     getArgs('a:number', ['a'])
   }, 'Expected a(pos 0) to be a number')
+  assert.throws(function(){
+    getArgs('a:boolean', ['a'])
+  }, 'Expected a(pos 0) to be a boolean')
 })
 
 test('unknown type', function(){

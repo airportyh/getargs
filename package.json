@@ -4,7 +4,6 @@
   "description": "Utility to handle optional arguments and argument type checking.",
   "main": "index.js",
   "dependencies": {
-    "is-type": "~0.0.1"
   },
   "devDependencies": {
     "chai": "~1.7.2"
