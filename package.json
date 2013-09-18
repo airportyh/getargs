@@ -1,10 +1,9 @@
 {
   "name": "getargs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Utility to handle optional arguments and argument type checking.",
   "main": "index.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "chai": "~1.7.2"
   },
