@@ -42,12 +42,25 @@ module.exports = function getArgs(spec, args){
   spec = spec.split(',').map(function(s){
     return ArgSpec(s)
   })
+  var minExpected = spec.filter(function(s){
+    return !s.optional
+  }).length
+  var maxExpected = spec.length
   var argIdxOffset = 0
-  for (var i = 0; i < spec.length; i++){
+  var length = Math.max(spec.length, args.length)
+  for (var i = 0; i < length; i++){
     var sp = spec[i]
     var argIdx = i + argIdxOffset
     if (argIdx >= args.length){
+      if (argIdx < minExpected){
+        throw new Error(
+          'Not enough arguments, expected ' +
+          minExpected + ', got ' + argIdx)
+      }
       break
+    }
+    if (argIdx >= maxExpected){
+      throw new Error('Too many arguments, expected 1, got 2')
     }
     var arg = args[argIdx]
     if (typeMatches(sp, arg)){

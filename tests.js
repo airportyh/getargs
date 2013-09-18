@@ -9,19 +9,19 @@ test('basic', function(){
   assert.deepEqual(result, getArgs('a, b', args))
 })
 
-test.skip('not enough throws', function(){
+test('not enough throws', function(){
   getArgs('a', [1])
   assert.throws(function(){
     getArgs('a', [])
-  })
+  }, 'Not enough arguments, expected 1, got 0')
 })
 
-test('ignore extras many', function(){
-  var args = [1, 2, 3, 4]
-  var result = getArgs('a,b', args)
-  assert(result.a === 1)
-  assert(result.b === 2)
-  assert(Object.keys(result) == 'a,b')
+test('too many throws', function(){
+  var args = [1, 2]
+  assert.throws(function(){
+    getArgs('a', args)
+  }, 'Too many arguments, expected 1, got 2')
+  
 })
 
 test('checks type', function(){
