@@ -45,6 +45,13 @@ test('checks type', function(){
   }, 'Expected a(pos 0) to be a boolean')
 })
 
+test('supports multiple types', function(){
+  var result = getArgs('a:string|array', ['abc'])
+  assert.equal(result.a, 'abc')
+  var result = getArgs('a:string|array', [['abc']])
+  assert.deepEqual(result.a, ['abc'])
+})
+
 test('unknown type', function(){
   assert.throws(function(){
     getArgs('a:blarg', ['abc'])
