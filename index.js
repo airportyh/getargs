@@ -14,7 +14,7 @@ function ArgSpec(str){
   if (parts.length > 1){
     ret = {
       name: parts[0],
-      type: parts[1]
+      type: parts[1].split('|')
     }
   }else if (parts.length === 1){
     ret = {
@@ -35,19 +35,30 @@ function ArgSpec(str){
   return ret
 }
 
-function typeMatches(spec, arg){
+function typeMatches(spec, arg) {
   if (!spec.type) return true
-  var fun = is[spec.type.toLowerCase()]
-  if (!fun){
-    throw new Error('Unknown type: ' + spec.type)
+
+  var match = false;
+
+  var type = null;
+  for (var i = 0; i<spec.type.length; i++ ) {
+    type = spec.type[i];
+    var fun = is[type.toLowerCase()]    
+    if (!fun) {
+      throw new Error('Unknown type: ' + spec.type)
+    }    
+    match = fun(arg);
+    if (match) break;
   }
-  return fun(arg)
+  
+  return match;
 }
 
 module.exports = function getArgs(spec, args, target){
   var ret = target || {}
   spec = spec.split(',').map(function(s){
-    return ArgSpec(s)
+    s = ArgSpec(s);
+    return s;
   })
   var minExpected = spec.filter(function(s){
     return !s.optional
@@ -82,7 +93,7 @@ module.exports = function getArgs(spec, args, target){
       argIdxOffset--
     }else{
       throw new Error('Expected ' + sp.name + 
-        '(pos ' + i + ') to be a ' + sp.type)
+        '(pos ' + i + ') to be a ' + sp.type.join(' or '))
     }
   }
   return ret
