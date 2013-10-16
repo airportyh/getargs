@@ -11,8 +11,8 @@ Bower - `bower install getargs`; NPM - `npm install getargs`.
 
     var getArgs = require('getargs')
 
-    function ajax(/* url:string, [options]:object, callback:function */){
-      var args = getArgs('url:string, [options]:object, callback:function', arguments)
+    function ajax(/* url:string|array, [options]:object, callback:function */){
+      var args = getArgs('url:string|array, [options]:object, callback:function', arguments)
 
       console.log('url is', args.url)
       console.log('options is optionally', args.options)
@@ -24,6 +24,10 @@ Bower - `bower install getargs`; NPM - `npm install getargs`.
 The argument spec is a comma delimited string of individual specs, which look like
 
     argname:type
+
+You can specify multiple types by using `|`
+
+    argname:type|type|type
 
 * `argname` is the name of the argument, and can be called anything
 * `type` is an optional basic Javascript type. Currently these are supported
