@@ -63,6 +63,11 @@ test('optional by type', function(){
   assert(result.callback instanceof Function)
 })
 
+test('optional + spread', function(){
+  var result = getArgs('[user]:object,...rest',[1,2,3])
+  assert.deepEqual(result.rest, [1,2,3])
+})
+
 test('optional last', function(){
   var result = getArgs('a,[b]', [1])
   assert(result.a === 1)

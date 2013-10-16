@@ -73,7 +73,7 @@ module.exports = function getArgs(spec, args, target){
     var arg = args[argIdx]
     if (typeMatches(sp, arg)){
       if (sp.spread){
-        ret[sp.name] = Array.prototype.slice.call(args, i)
+        ret[sp.name] = Array.prototype.slice.call(args, argIdx)
         break
       }else{
         ret[sp.name] = arg
