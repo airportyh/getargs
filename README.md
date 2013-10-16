@@ -25,7 +25,7 @@ The argument spec is a comma delimited string of individual specs, which look li
 
     argname:type
 
-You can specify multiple types by using |
+You can specify multiple types by using `|`
 
     argname:type|type|type
 
