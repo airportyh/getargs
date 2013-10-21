@@ -73,7 +73,7 @@ test('supports multiple types', function(){
 
 test('unknown type', function(){
   assert.throws(function(){
-    getArgs('a:blarg', ['abc'])    
+    getArgs('a:blarg', ['abc'])
   }, 'Unknown type: blarg')
 })
 
