@@ -1,5 +1,5 @@
 var is = {
-  'mixed': function(s){ return s !=== undefined; },
+  'mixed': function(s){ return s !== undefined; },
   'string': function(s){ return typeof s === 'string' },
   'function': function(f){ return typeof f === 'function' },
   'number': function(f){ return typeof f === 'number' },
