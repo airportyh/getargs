@@ -48,6 +48,25 @@ test('checks type', function(){
   assert.throws(function(){
     getArgs('a:boolean', ['a'])
   }, 'Expected a(pos 0) to be a boolean')
+  assert.throws(function(){
+    getArgs('a:mixed', [undefined])
+  }, 'Expected a(pos 0) to be a mixed')
+})
+
+test('checks multiple types', function(){
+  var result = getArgs('a:string|array', ['abc'])
+  assert(result.a === 'abc')
+
+  var result = getArgs('a:string|array', [['abc']])
+  assert(result.a[0] === 'abc')
+
+  assert.throws(function(){
+      getArgs('a:string|array', [0])
+  }, 'Expected a(pos 0) to be a string or array')
+
+  assert.throws(function(){
+      res = getArgs('a:string|number', [true])
+  }, 'Expected a(pos 0) to be a string or number')
 })
 
 test('supports multiple types', function(){

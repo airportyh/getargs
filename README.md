@@ -37,6 +37,7 @@ You can specify multiple types by using `|`
   * `object`
   * `function`
   * `array`
+  * `mixed` - This will currently matched anything that isn't === undefined.
 
 ### Optional Arguments
 
