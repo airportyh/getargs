@@ -16,6 +16,11 @@ test('not enough throws', function(){
   }, 'Not enough arguments, expected 1, got 0')
 })
 
+test('optional', function(){
+  assert(!('a' in getArgs('[a]', [])))
+  assert.strictEqual(getArgs('[a]', [1]).a, 1)
+})
+
 test('too many throws', function(){
   var args = [1, 2]
   assert.throws(function(){
